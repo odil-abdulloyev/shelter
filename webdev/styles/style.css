@@ -44,7 +44,7 @@ body {
 
 .first-page {
   height: 744px;
-  background: url('../images/jpg/bg-image.jpg') no-repeat center;
+  background: url('bg/bg-image.jpg') no-repeat center;
   padding-top: 231px;
 }
 
@@ -174,7 +174,7 @@ body {
 .our-community {
   display: flex;
   flex-wrap: nowrap;
-  align-items: center;
+  align-items: center;тобы начать работу с GitHub, нужно зарегистрироваться на сайте, если вы ещё этого не сделали. За дело.
 }
 
 .our-community-info {
@@ -295,7 +295,7 @@ body {
 
 .fifth-page {
   height: 598px;
-  background: url('../images/jpg/bg-4-page.jpg') no-repeat center;
+  background: url('bg/bg-4-page.jpg') no-repeat center;
   background-size: cover;
 }
 
