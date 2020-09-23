@@ -63,6 +63,7 @@ class Calculator {
       default:
         return;
     }
+    computation = Math.round(computation * Math.pow(10, 15)) / Math.pow(10, 15);
     this.readyToReset = true;
     this.currentOperand = computation;
     this.operation = undefined;
