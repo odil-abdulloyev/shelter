@@ -35,7 +35,9 @@ class Calculator {
     let computation;
     const prev = parseFloat(this.previousOperand);
     const current = parseFloat(this.currentOperand);
-    if (isNaN(prev) || isNaN(current)) return;
+    if ((isNaN(prev) || isNaN(current)) && this.operation !== '√') {
+      return;
+    }
     switch (this.operation) {
       case '+':
         computation = prev + current;
@@ -49,6 +51,15 @@ class Calculator {
       case '÷':
         computation = prev / current;
         break
+      case 'xy':
+        computation = Math.pow(prev, current);
+        break;
+      case '√':
+        if (prev < 0) {
+          throw 'complex';
+        }
+        computation = Math.sqrt(prev);
+        break;
       default:
         return;
     }
@@ -79,8 +90,17 @@ class Calculator {
     this.currentOperandTextElement.innerText =
       this.getDisplayNumber(this.currentOperand)
     if (this.operation != null) {
-      this.previousOperandTextElement.innerText =
-        `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
+      let oper = this.operation;
+      if (oper === 'xy') {
+        oper = '^';
+      }
+      if (oper === '√') {
+        this.previousOperandTextElement.innerText =
+          `${oper} ${this.getDisplayNumber(this.previousOperand)}`;
+      } else {
+        this.previousOperandTextElement.innerText =
+          `${this.getDisplayNumber(this.previousOperand)} ${oper}`;
+      }
     } else {
       this.previousOperandTextElement.innerText = ''
     }
@@ -120,8 +140,15 @@ operationButtons.forEach(button => {
 })
 
 equalsButton.addEventListener('click', button => {
-  calculator.compute();
-  calculator.updateDisplay();
+  try {
+    calculator.compute();
+    calculator.updateDisplay();
+  } catch (msg) {
+    calculator.previousOperandTextElement.innerText = '';
+    calculator.currentOperandTextElement.innerText = msg;
+    calculator.operation = undefined;
+  }
+  
 })
 
 allClearButton.addEventListener('click', button => {
