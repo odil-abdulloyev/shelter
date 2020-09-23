@@ -22,7 +22,14 @@ class Calculator {
   }
 
   chooseOperation(operation) {
-    if (this.currentOperand === '') return;
+    if (this.currentOperand === '') {
+      if (operation === '-') {
+        this.currentOperand = '-';
+      }
+      return;
+    } else if (this.currentOperand === '-' && operation === '-') {
+      return;
+    }
     if (this.previousOperand !== '' && this.previousOperand !== '') {
       this.compute();
     }
@@ -63,7 +70,7 @@ class Calculator {
       default:
         return;
     }
-    computation = Math.round(computation * Math.pow(10, 15)) / Math.pow(10, 15);
+    computation = Math.round(computation * Math.pow(10, 12)) / Math.pow(10, 12);
     this.readyToReset = true;
     this.currentOperand = computation;
     this.operation = undefined;
@@ -71,6 +78,9 @@ class Calculator {
   }
 
   getDisplayNumber(number) {
+    if (number === '-') {
+      return '-';
+    }
     const stringNumber = number.toString()
     const integerDigits = parseFloat(stringNumber.split('.')[0])
     const decimalDigits = stringNumber.split('.')[1]
@@ -122,14 +132,15 @@ const calculator = new Calculator(previousOperandTextElement, currentOperandText
 numberButtons.forEach(button => {
   button.addEventListener("click", () => {
 
-      if(calculator.previousOperand === "" &&
+    if (calculator.previousOperand === "" &&
       calculator.currentOperand !== "" &&
-  calculator.readyToReset) {
-          calculator.currentOperand = "";
-          calculator.readyToReset = false;
-      }
-      calculator.appendNumber(button.innerText)
-      calculator.updateDisplay();
+      calculator.currentOperand !== '-' &&
+      calculator.readyToReset) {
+      calculator.currentOperand = "";
+      calculator.readyToReset = false;
+    }
+    calculator.appendNumber(button.innerText)
+    calculator.updateDisplay();
   })
 })
 
@@ -149,7 +160,7 @@ equalsButton.addEventListener('click', button => {
     calculator.currentOperandTextElement.innerText = msg;
     calculator.operation = undefined;
   }
-  
+
 })
 
 allClearButton.addEventListener('click', button => {
