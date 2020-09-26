@@ -57,3 +57,18 @@ body {
 .power {
     font-size: 1rem;
 }
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 80px;
+}
+
+.textbox {
+    background: rgb(223, 215, 215);
+    border: 1px solid rgb(131, 124, 124);
+    width: 350px;
+    padding: 10px;
+    line-height: 150%;
+}
