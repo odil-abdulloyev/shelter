@@ -71,10 +71,10 @@ class Calculator {
         return;
     }
     computation = Math.round(computation * Math.pow(10, 12)) / Math.pow(10, 12);
-    this.readyToReset = true;
     this.currentOperand = computation;
     this.operation = undefined;
     this.previousOperand = '';
+    this.readyToReset = true;
   }
 
   getDisplayNumber(number) {
@@ -137,10 +137,10 @@ numberButtons.forEach(button => {
       calculator.currentOperand !== '-' &&
       calculator.readyToReset) {
       calculator.currentOperand = "";
-      calculator.readyToReset = false;
     }
-    calculator.appendNumber(button.innerText)
+    calculator.appendNumber(button.innerText);
     calculator.updateDisplay();
+    calculator.readyToReset = false;
   })
 })
 
