@@ -252,8 +252,12 @@ $start-screen-gradient-background: url(/assets/images/noise_transparent@2x.png),
       color: $color-dark-s;
     }
 
-    &:hover {
+    &:active {
       border-bottom: 3px solid $color-primary;
+      color: $color-light-s;
+    }
+
+    &:hover {
       color: $color-light-s;
     }
   }
@@ -451,7 +455,7 @@ $start-screen-gradient-background: url(/assets/images/noise_transparent@2x.png),
 
       &:hover {
         cursor: pointer;
-        transform: scale(1.03);
+        box-shadow: 3px 3px 10px 3px rgb(185, 182, 182);
       }
     }
   }
@@ -598,75 +602,80 @@ $start-screen-gradient-background: url(/assets/images/noise_transparent@2x.png),
 
 .footer {
   width: 100vw;
-  padding: 4rem 4rem 0 4rem;
-  background: $start-screen-gradient-background;
+  padding-top: 4rem;
+  background: url(/assets/images/noise_transparent@2x.png),
+    radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%), #211f20;
 
   &__wrapper {
     display: flex;
     flex-wrap: wrap;
-    column-gap: 15.9rem;
-    justify-content: center;
+    justify-content: space-between;
   }
 
   &__questions {
+    max-width: 27.9rem;
+    margin-top: 1.6rem;
+    margin-bottom: 6rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 4rem;
+
     .questions-title {
-      max-width: 27.9rem;
-      margin-top: 1.6rem;
-      @include h3;
+      @include h3();
       color: $color-light-xl;
     }
 
-    .email {
-      width: 25.1rem;
-      height: 3.2rem;
-      margin-top: 4rem;
+    .questions-list {
+      list-style-type: none;
       display: flex;
-      column-gap: 2rem;
-      align-items: center;
-      @include h4;
-      color: $color-primary;
-    }
+      flex-direction: column;
+      row-gap: 4rem;
 
-    .telephone {
-      width: 24rem;
-      height: 3.2rem;
-      margin-top: 4rem;
-      display: flex;
-      column-gap: 2rem;
-      align-items: center;
-      @include h4;
-      color: $color-primary;
+      li a {
+        height: 3.2rem;
+        display: flex;
+        align-items: center;
+        column-gap: 2rem;
+        @include h4();
+        color: $color-primary;
+      }
     }
   }
 
   &__visit {
+    max-width: 30.2rem;
+    margin-top: 1.6rem;
+    margin-bottom: 6rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3.3rem;
+
     .visit-title {
-      margin-top: 1.6rem;
-      max-width: 27rem;
-      @include h3;
+      @include h3();
       color: $color-light-xl;
     }
 
-    .boston {
-      width: 30.2rem;
-      height: 4.6rem;
-      margin-top: 3.4rem;
+    .visit-list {
+      list-style-type: none;
       display: flex;
-      column-gap: 2rem;
+      flex-direction: column;
+      row-gap: 3.3rem;
+    }
+
+    li a {
+      display: flex;
       align-items: center;
-      @include h4;
+      column-gap: 2rem;
+      @include h4();
       color: $color-primary;
     }
 
-    .london {
-      width: 30.2rem;
+    li:nth-child(1) {
+      height: 4.6rem;
+    }
+
+    li:nth-child(2) {
       height: 3.2rem;
-      margin-top: 3.2rem;
-      display: flex;
-      column-gap: 2rem;
-      align-items: center;
-      @include h4;
-      color: $color-primary;
     }
   }
 }

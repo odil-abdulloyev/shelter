@@ -167,8 +167,12 @@
   color: #cdcdcd;
 }
 
-.list__link:hover {
+.list__link:active {
   border-bottom: 3px solid #f1cdb3;
+  color: #fafafa;
+}
+
+.list__link:hover {
   color: #fafafa;
 }
 
@@ -438,8 +442,8 @@
 
 .pets__cards .card:hover {
   cursor: pointer;
-  -webkit-transform: scale(1.03);
-          transform: scale(1.03);
+  -webkit-box-shadow: 3px 3px 10px 3px #b9b6b6;
+          box-shadow: 3px 3px 10px 3px #b9b6b6;
 }
 
 .pets__arrow-right {
@@ -643,8 +647,8 @@
 
 .footer {
   width: 100vw;
-  padding: 4rem 4rem 0 4rem;
-  background: url(/assets/images/noise_transparent@2x.png), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
+  padding-top: 4rem;
+  background: url(/assets/images/noise_transparent@2x.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%), #211f20;
 }
 
 .footer__wrapper {
@@ -653,16 +657,26 @@
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-column-gap: 15.9rem;
-          column-gap: 15.9rem;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.footer__questions {
+  max-width: 27.9rem;
+  margin-top: 1.6rem;
+  margin-bottom: 6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 4rem;
 }
 
 .footer__questions .questions-title {
-  max-width: 27.9rem;
-  margin-top: 1.6rem;
   font-family: Georgia, serif;
   font-style: normal;
   font-weight: normal;
@@ -672,18 +686,28 @@
   color: #ffffff;
 }
 
-.footer__questions .email {
-  width: 25.1rem;
-  height: 3.2rem;
-  margin-top: 4rem;
+.footer__questions .questions-list {
+  list-style-type: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-column-gap: 2rem;
-          column-gap: 2rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 4rem;
+}
+
+.footer__questions .questions-list li a {
+  height: 3.2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-column-gap: 2rem;
+          column-gap: 2rem;
   font-family: Georgia, serif;
   font-style: normal;
   font-weight: normal;
@@ -693,30 +717,21 @@
   color: #f1cdb3;
 }
 
-.footer__questions .telephone {
-  width: 24rem;
-  height: 3.2rem;
-  margin-top: 4rem;
+.footer__visit {
+  max-width: 30.2rem;
+  margin-top: 1.6rem;
+  margin-bottom: 6rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-column-gap: 2rem;
-          column-gap: 2rem;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-family: Georgia, serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 2rem;
-  line-height: 115%;
-  letter-spacing: 0.12rem;
-  color: #f1cdb3;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 3.3rem;
 }
 
 .footer__visit .visit-title {
-  margin-top: 1.6rem;
-  max-width: 27rem;
   font-family: Georgia, serif;
   font-style: normal;
   font-weight: normal;
@@ -726,18 +741,27 @@
   color: #ffffff;
 }
 
-.footer__visit .boston {
-  width: 30.2rem;
-  height: 4.6rem;
-  margin-top: 3.4rem;
+.footer__visit .visit-list {
+  list-style-type: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-column-gap: 2rem;
-          column-gap: 2rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 3.3rem;
+}
+
+.footer__visit li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-column-gap: 2rem;
+          column-gap: 2rem;
   font-family: Georgia, serif;
   font-style: normal;
   font-weight: normal;
@@ -747,24 +771,11 @@
   color: #f1cdb3;
 }
 
-.footer__visit .london {
-  width: 30.2rem;
+.footer__visit li:nth-child(1) {
+  height: 4.6rem;
+}
+
+.footer__visit li:nth-child(2) {
   height: 3.2rem;
-  margin-top: 3.2rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-column-gap: 2rem;
-          column-gap: 2rem;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-family: Georgia, serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 2rem;
-  line-height: 115%;
-  letter-spacing: 0.12rem;
-  color: #f1cdb3;
 }
 /*# sourceMappingURL=main.css.map */
