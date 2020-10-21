@@ -92,6 +92,15 @@ $start-screen-gradient-background: url(/assets/images/noise_transparent@2x.png),
   letter-spacing: 0.21rem;
 }
 
+@mixin h3-mobile {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2.5rem;
+  line-height: 130%;
+  letter-spacing: 0.16rem;
+}
+
 @mixin h4 {
   font: {
     family: Georgia, serif;
@@ -236,6 +245,7 @@ $start-screen-gradient-background: url(/assets/images/noise_transparent@2x.png),
 .menu {
   max-width: 44.3rem;
   display: flex;
+  flex-wrap: wrap;
   column-gap: 3.5rem;
   list-style-type: none;
 
@@ -470,3 +480,182 @@ $start-screen-gradient-background: url(/assets/images/noise_transparent@2x.png),
 }
 
 // Footer end
+
+// Styles for displays with 768px <= width <= 1279
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .header {
+    &__wrapper {
+      max-width: 92.1875%;
+      margin: 0 auto;
+    }
+  }
+
+  .friends {
+    padding-top: 7rem;
+    padding-bottom: 7.6rem;
+
+    &__title {
+      margin-bottom: 2.5rem;
+      height: auto;
+    }
+
+    &__slider {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      figure:nth-child(7),
+      figure:nth-child(8) {
+        display: none;
+      }
+    }
+
+    &__navigation {
+      margin-top: 4rem;
+    }
+  }
+
+  .footer {
+    padding-top: 0;
+
+    &__wrapper {
+      margin: 0 auto;
+      width: 83.3333333333%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    &__questions {
+      margin-top: 3rem;
+    }
+
+    &__visit {
+      margin-top: 3rem;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    &__image {
+      margin: 0 auto;
+    }
+  }
+}
+
+// Styles for displays with 320px <= width <= 767px
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .wrapper {
+    max-width: 93.75%;
+  }
+
+  .header {
+    .menu {
+      li {
+        display: none;
+      }
+
+      .burger {
+        position: absolute;
+        top: 4.9rem;
+        right: 5.3rem;
+        width: 3rem;
+        height: 2.2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        span {
+          width: 100%;
+          height: 2px;
+          background-color: #000000;
+        }
+      }
+    }
+  }
+
+  .friends {
+    padding-top: 4.2rem;
+    padding-bottom: 4.2rem;
+
+    &__title {
+      @include h3-mobile();
+      margin-bottom: 4.2rem;
+    }
+
+    &__slider {
+      padding: 0;
+      margin-bottom: 4.2rem;
+
+      :nth-child(4),
+      :nth-child(5),
+      :nth-child(6),
+      :nth-child(7),
+      :nth-child(8) {
+        display: none;
+      }
+    }
+
+    &__navigation {
+      max-width: 30rem;
+    }
+  }
+
+  .footer {
+    padding-top: 3rem;
+
+    &__wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    &__questions {
+      width: 100%;
+      margin-top: 0;
+      margin-bottom: 4rem;
+      display: flex;
+      justify-content: center;
+
+      .questions-title {
+        @include h3-mobile();
+        text-align: center;
+      }
+
+      .questions-list {
+        a {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+
+    &__visit {
+      width: 100%;
+      margin-top: 0;
+      margin-bottom: 4rem;
+      display: flex;
+      justify-content: center;
+      row-gap: 0;
+
+      .visit-title {
+        @include h3-mobile();
+        width: 90%;
+        text-align: center;
+        margin: 0 auto 4rem;
+      }
+
+      li:first-child {
+        height: 3.2rem;
+        margin-bottom: 2.1rem;
+      }
+    }
+
+    &__image {
+      width: 86.6666667%;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

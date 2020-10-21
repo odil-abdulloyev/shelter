@@ -138,6 +138,8 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-column-gap: 3.5rem;
           column-gap: 3.5rem;
   list-style-type: none;
@@ -445,5 +447,189 @@
 
 .footer__visit li:nth-child(2) {
   height: 3.2rem;
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .header__wrapper {
+    max-width: 92.1875%;
+    margin: 0 auto;
+  }
+  .friends {
+    padding-top: 7rem;
+    padding-bottom: 7.6rem;
+  }
+  .friends__title {
+    margin-bottom: 2.5rem;
+    height: auto;
+  }
+  .friends__slider {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  .friends__slider figure:nth-child(7),
+  .friends__slider figure:nth-child(8) {
+    display: none;
+  }
+  .friends__navigation {
+    margin-top: 4rem;
+  }
+  .footer {
+    padding-top: 0;
+  }
+  .footer__wrapper {
+    margin: 0 auto;
+    width: 83.3333333333%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .footer__questions {
+    margin-top: 3rem;
+  }
+  .footer__visit {
+    margin-top: 3rem;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .footer__image {
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .wrapper {
+    max-width: 93.75%;
+  }
+  .header .menu li {
+    display: none;
+  }
+  .header .menu .burger {
+    position: absolute;
+    top: 4.9rem;
+    right: 5.3rem;
+    width: 3rem;
+    height: 2.2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .header .menu .burger span {
+    width: 100%;
+    height: 2px;
+    background-color: #000000;
+  }
+  .friends {
+    padding-top: 4.2rem;
+    padding-bottom: 4.2rem;
+  }
+  .friends__title {
+    font-family: Georgia;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2.5rem;
+    line-height: 130%;
+    letter-spacing: 0.16rem;
+    margin-bottom: 4.2rem;
+  }
+  .friends__slider {
+    padding: 0;
+    margin-bottom: 4.2rem;
+  }
+  .friends__slider :nth-child(4),
+  .friends__slider :nth-child(5),
+  .friends__slider :nth-child(6),
+  .friends__slider :nth-child(7),
+  .friends__slider :nth-child(8) {
+    display: none;
+  }
+  .friends__navigation {
+    max-width: 30rem;
+  }
+  .footer {
+    padding-top: 3rem;
+  }
+  .footer__wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .footer__questions {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 4rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .footer__questions .questions-title {
+    font-family: Georgia;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2.5rem;
+    line-height: 130%;
+    letter-spacing: 0.16rem;
+    text-align: center;
+  }
+  .footer__questions .questions-list a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .footer__visit {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 4rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    row-gap: 0;
+  }
+  .footer__visit .visit-title {
+    font-family: Georgia;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2.5rem;
+    line-height: 130%;
+    letter-spacing: 0.16rem;
+    width: 90%;
+    text-align: center;
+    margin: 0 auto 4rem;
+  }
+  .footer__visit li:first-child {
+    height: 3.2rem;
+    margin-bottom: 2.1rem;
+  }
+  .footer__image {
+    width: 86.6666667%;
+  }
+  .footer__image img {
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=pets.css.map */
