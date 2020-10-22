@@ -1,2 +1,1 @@
-Task name: shelter
-
+Adaptive website "Shelter"
