@@ -443,6 +443,10 @@
           box-shadow: 3px 3px 10px 3px #b9b6b6;
 }
 
+.pets__cards .card:hover .learn-more {
+  background-color: #f1cdb3;
+}
+
 .pets__arrow-right {
   max-width: 5.2rem;
   max-height: 5.2rem;
@@ -890,6 +894,10 @@
     height: 2px;
     background-color: #f1cdb3;
   }
+  .burger:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
   .logo {
     position: absolute;
     top: 50%;
@@ -1086,6 +1094,7 @@
         -ms-flex-order: 2;
             order: 2;
     width: 86.6666667%;
+    max-width: 50.5rem;
   }
   .donation__picture-wrapper img {
     width: 100%;
@@ -1094,14 +1103,13 @@
     padding-top: 3rem;
   }
   .footer__wrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .footer__questions {
     width: 100%;
@@ -1160,6 +1168,7 @@
   }
   .footer__image {
     width: 86.6666667%;
+    max-width: 30rem;
   }
   .footer__image img {
     width: 100%;

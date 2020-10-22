@@ -326,6 +326,9 @@ $start-screen-gradient-background: url(/assets/images/noise_transparent@2x.png),
     &:hover {
       cursor: pointer;
       box-shadow: 3px 3px 10px 3px rgb(185, 182, 182);
+      .friends__learn-more {
+        background-color: $color-primary;
+      }
     }
   }
 
@@ -569,6 +572,11 @@ $start-screen-gradient-background: url(/assets/images/noise_transparent@2x.png),
           height: 2px;
           background-color: #000000;
         }
+
+        &:hover {
+          cursor: pointer;
+          opacity: .9;
+        }
       }
     }
   }
@@ -585,6 +593,8 @@ $start-screen-gradient-background: url(/assets/images/noise_transparent@2x.png),
     &__slider {
       padding: 0;
       margin-bottom: 4.2rem;
+      flex-direction: column;
+      align-items: center;
 
       :nth-child(4),
       :nth-child(5),
@@ -604,9 +614,8 @@ $start-screen-gradient-background: url(/assets/images/noise_transparent@2x.png),
     padding-top: 3rem;
 
     &__wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
     }
 
     &__questions {
@@ -652,6 +661,7 @@ $start-screen-gradient-background: url(/assets/images/noise_transparent@2x.png),
 
     &__image {
       width: 86.6666667%;
+      max-width: 30rem;
 
       img {
         width: 100%;

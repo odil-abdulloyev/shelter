@@ -242,6 +242,10 @@
           box-shadow: 3px 3px 10px 3px #b9b6b6;
 }
 
+.friends__card:hover .friends__learn-more {
+  background-color: #f1cdb3;
+}
+
 .friends__learn-more {
   width: 18.7rem;
   height: 5.2rem;
@@ -530,6 +534,10 @@
     height: 2px;
     background-color: #000000;
   }
+  .header .menu .burger:hover {
+    cursor: pointer;
+    opacity: .9;
+  }
   .friends {
     padding-top: 4.2rem;
     padding-bottom: 4.2rem;
@@ -546,6 +554,13 @@
   .friends__slider {
     padding: 0;
     margin-bottom: 4.2rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .friends__slider :nth-child(4),
   .friends__slider :nth-child(5),
@@ -561,14 +576,13 @@
     padding-top: 3rem;
   }
   .footer__wrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .footer__questions {
     width: 100%;
@@ -627,6 +641,7 @@
   }
   .footer__image {
     width: 86.6666667%;
+    max-width: 30rem;
   }
   .footer__image img {
     width: 100%;
