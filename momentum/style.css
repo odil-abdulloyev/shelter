@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding-top: 100px;
+  font-family: 'Quicksand', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-size: cover;
+  color: #1b1a1a;
+  transition: background-image 1s ease-in-out;
+  -webkit-transition: background-image 1s ease-in-out;
+  -moz-transition: background-image 1s ease-in-out;
+}
+
+input[type="text"] {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #eff169;
+  text-shadow: 1px 2px #383333;
+  font-family: 'Quicksand', sans-serif;
+  display: block;
+  word-wrap: normal;
+}
+
+.main {
+  width: 34%;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quote-panel, .weather-panel {
+  width: 33%;
+  background-color: rgba(177, 255, 229, .3);
+}
+
+.city {
+  margin: auto;
+}
+
+.change-quote {
+  margin-top: 30px;
+}
+
+.time {
+  display: block;
+  width: 500px;
+  font-size: 5rem;
+}
+
+h1 {
+  margin-bottom: 2rem;
+}
+
+h2 {
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+  font-size: 1.8rem;
+}
+
+.date {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.button {
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  background: rgba(216, 137, 216, .3);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: width 1s;
+  -webkit-transition: width 1s;
+  -moz-transition: width 1s;
+  color: rgb(29, 6, 6);
+  box-shadow: 2px 2px 2px black;
+}
+
+.button:hover {
+  transform: translateX(2px);
+}
+
+.button:active {
+  background: rgb(216, 137, 216);
+}
+
+aside {
+  padding: 5px;
+}
+
+.change-bg {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .time {
+    width: 100%;
+    font-size: 5rem;
+    display: block;
+    text-align: center;
+  }
+  body {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+  }
+  .quote-panel, .weather-panel, .main {
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .quote-panel, .weather-panel {
+    padding: 5px;
+    border: 1px solid rgba(190, 168, 168, .5);
+    margin: 5px 0;
+  }
+  .quote-panel {
+    order: 1;
+  }
+}
