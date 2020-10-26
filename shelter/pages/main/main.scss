@@ -525,8 +525,9 @@ $start-screen-gradient-background: url("../../assets/images/noise_transparent.pn
     max-width: 103rem;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
+    column-gap: 12rem;
     row-gap: 5.5rem;
 
     figure {
@@ -1066,7 +1067,8 @@ $start-screen-gradient-background: url("../../assets/images/noise_transparent.pn
     &__icons {
       width: 100%;
       justify-content: space-between;
-
+      column-gap: 3rem;
+      
       .icon {
         width: 43.3333333%;
         height: 8.7rem;

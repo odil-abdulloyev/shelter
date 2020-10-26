@@ -522,11 +522,13 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-column-gap: 12rem;
+          column-gap: 12rem;
   row-gap: 5.5rem;
 }
 
@@ -1167,6 +1169,8 @@
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    -webkit-column-gap: 3rem;
+            column-gap: 3rem;
   }
   .help__icons .icon {
     width: 43.3333333%;
