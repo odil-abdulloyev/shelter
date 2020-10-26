@@ -1,55 +1,55 @@
 @font-face {
   font-family: Arial;
-  src: url(/assets/fonts/arial/ArialRegular.woff) format("woff");
+  src: url("../../assets/fonts/arial/ArialRegular.woff") format("woff");
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
   font-family: Arial;
-  src: url(/assets/fonts/arial/ArialBold.woff) format("woff");
+  src: url("../../assets/fonts/arial/ArialBold.woff") format("woff");
   font-style: normal;
   font-weight: bold;
 }
 
 @font-face {
   font-family: Arial;
-  src: url(/assets/fonts/arial/ArialItalic.woff) format("woff");
+  src: url("../../assets/fonts/arial/ArialItalic.woff") format("woff");
   font-style: italic;
   font-weight: normal;
 }
 
 @font-face {
   font-family: Arial;
-  src: url(/assets/fonts/arial/ArialBoldItalic.woff) format("woff");
+  src: url("../../assets/fonts/arial/ArialBoldItalic.woff") format("woff");
   font-style: italic;
   font-weight: bold;
 }
 
 @font-face {
   font-family: Georgia;
-  src: url(/assets/fonts/georgia/Georgia.woff) format("woff");
+  src: url("../../assets/fonts/georgia/Georgia.woff") format("woff");
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
   font-family: Georgia;
-  src: url(/assets/fonts/georgia/georgia-bold.woff) format("woff");
+  src: url("../../assets/fonts/georgia/georgia-bold.woff") format("woff");
   font-style: normal;
   font-weight: bold;
 }
 
 @font-face {
   font-family: Georgia;
-  src: url(/assets/fonts/georgia/georgia-italic.woff) format("woff");
+  src: url("../../assets/fonts/georgia/georgia-italic.woff") format("woff");
   font-style: italic;
   font-weight: normal;
 }
 
 @font-face {
   font-family: Georgia;
-  src: url(/assets/fonts/georgia/georgia-bold-italic.woff) format("woff");
+  src: url("../../assets/fonts/georgia/georgia-bold-italic.woff") format("woff");
   font-style: italic;
   font-weight: bold;
 }
@@ -68,7 +68,7 @@ $color-dark-xl: #4c4c4c;
 $color-dark-2xl: #444444;
 $color-dark-3xl: #292929;
 
-$start-screen-gradient-background: url(/assets/images/noise_transparent@2x.png),
+$start-screen-gradient-background: url("../../assets/images/noise_transparent.png"),
   radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
 
 @mixin h2 {
@@ -326,9 +326,6 @@ $start-screen-gradient-background: url(/assets/images/noise_transparent@2x.png),
     &:hover {
       cursor: pointer;
       box-shadow: 3px 3px 10px 3px rgb(185, 182, 182);
-      .friends__learn-more {
-        background-color: $color-primary;
-      }
     }
   }
 
@@ -347,6 +344,10 @@ $start-screen-gradient-background: url(/assets/images/noise_transparent@2x.png),
     font-size: 1.7rem;
     letter-spacing: 0.06em;
     color: $color-dark-3xl;
+
+    &:hover {
+      background-color: $color-primary;
+    }
   }
 
   &__navigation {
@@ -406,7 +407,7 @@ $start-screen-gradient-background: url(/assets/images/noise_transparent@2x.png),
 .footer {
   width: 100vw;
   padding-top: 4rem;
-  background: url(/assets/images/noise_transparent@2x.png),
+  background: url("../../assets/images/noise_transparent.png"),
     radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%), #211f20;
 
   &__wrapper {
@@ -484,6 +485,115 @@ $start-screen-gradient-background: url(/assets/images/noise_transparent@2x.png),
 
 // Footer end
 
+// Modal Start
+
+.modal {
+  position: fixed;
+  top: 10%;
+  left: 14.53125%;
+  width: 95.2rem;
+  height: 55.2rem;
+  z-index: 10000;
+  background: none;
+  transform: scale(0);
+  transition: 200ms ease-in-out;
+
+  &.active {
+    transform: scale(1);
+  }
+
+  &__close-button {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 2px solid $color-primary;
+    border-radius: 50%;
+    background: none;
+    width: 5.2rem;
+    height: 5.2rem;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: 100ms ease-in-out;
+
+    &:active {
+      background-color: $color-primary;
+    }
+
+    &:hover {
+      font-size: 3rem;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 94.5378151%;
+    height: 90.5797101%;
+    display: flex;
+    background: $color-light-s;
+    border-radius: 9px;
+    overflow: auto;
+  }
+
+  &__image {
+    width: auto;
+    height: 100%;
+  }
+
+  &__info {
+    padding-top: 1%;
+    padding-left: 2.9rem;
+  }
+
+  &__title {
+    @include h3();
+    margin-bottom: 1rem;
+  }
+
+  &__subtitle {
+    @include h4();
+    margin-bottom: 4rem;
+  }
+
+  &__text {
+    @include h5();
+    margin-bottom: 4rem;
+    max-width: 35rem;
+  }
+
+  &__list {
+    list-style-position: inside;
+    font-size: 1.5rem;
+    color: $color-primary;
+
+    strong,
+    em {
+      color: black;
+    }
+  }
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(41, 41, 41, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: 200ms ease-in-out;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+// Modal end
+
 // Styles for displays with 768px <= width <= 1279
 
 @media (min-width: 768px) and (max-width: 1279px) {
@@ -542,6 +652,24 @@ $start-screen-gradient-background: url(/assets/images/noise_transparent@2x.png),
       margin: 0 auto;
     }
   }
+
+  .modal {
+    width: 68.2rem;
+    height: 40.2rem;
+
+    &__content {
+      width: 63rem;
+      height: 35rem;
+    }
+
+    &__subtitle {
+      margin-bottom: 1.5rem;
+    }
+
+    &__text {
+      margin-bottom: 2rem;
+    }
+  }
 }
 
 // Styles for displays with 320px <= width <= 767px
@@ -575,7 +703,7 @@ $start-screen-gradient-background: url(/assets/images/noise_transparent@2x.png),
 
         &:hover {
           cursor: pointer;
-          opacity: .9;
+          opacity: 0.9;
         }
       }
     }
@@ -666,6 +794,41 @@ $start-screen-gradient-background: url(/assets/images/noise_transparent@2x.png),
       img {
         width: 100%;
       }
+    }
+  }
+
+  .modal {
+    width: 27.1rem;
+    height: 39.3rem;
+    top: 8%;
+    left: 12.5%;
+
+    &__content {
+      width: 24rem;
+      height: 34.1rem;
+    }
+
+    &__image {
+      display: none;
+    }
+
+    &__title {
+      @include h3();
+    }
+
+    &__subtitle {
+      @include h4();
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    &__text {
+      font-size: 13px;
+      margin-bottom: 2.4rem;
+    }
+
+    &__list {
+      font-size: 12px;
     }
   }
 }

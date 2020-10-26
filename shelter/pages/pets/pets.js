@@ -90,17 +90,6 @@ const pets = [
   }
 ]
 
-// redirect to pets page on click "make a friend" button
-document.querySelector('.content-section__button').addEventListener('click', function () {
-  window.location.href = '/pages/pets/pets.html';
-});
-
-// redirect to pets page on click "get to know the rest" button
-document.querySelector('.pets__button').addEventListener('click', function () {
-  window.location.href = '/pages/pets/pets.html';
-});
-
-
 // ---------------------------------------
 // Popup
 // ---------------------------------------
@@ -116,7 +105,7 @@ openModal.forEach(card => {
   card.addEventListener('click', () => {
     const modal = document.querySelector(card.dataset.modalTarget);
     const img = document.querySelector('.modal__image');
-    const name = card.querySelector('.card figcaption');
+    const name = card.querySelector('.friends__card figcaption');
     const title = document.querySelector('.modal__title');
     const subtitle = document.querySelector('.modal__subtitle');
     const text = document.querySelector('.modal__text');
