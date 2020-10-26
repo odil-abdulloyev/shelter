@@ -1,55 +1,55 @@
 @font-face {
   font-family: Arial;
-  src: url(/assets/fonts/arial/ArialRegular.woff) format("woff");
+  src: url("../../assets/fonts/arial/ArialRegular.woff") format("woff");
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
   font-family: Arial;
-  src: url(/assets/fonts/arial/ArialBold.woff) format("woff");
+  src: url("../../assets/fonts/arial/ArialBold.woff") format("woff");
   font-style: normal;
   font-weight: bold;
 }
 
 @font-face {
   font-family: Arial;
-  src: url(/assets/fonts/arial/ArialItalic.woff) format("woff");
+  src: url("../../assets/fonts/arial/ArialItalic.woff") format("woff");
   font-style: italic;
   font-weight: normal;
 }
 
 @font-face {
   font-family: Arial;
-  src: url(/assets/fonts/arial/ArialBoldItalic.woff) format("woff");
+  src: url("../../assets/fonts/arial/ArialBoldItalic.woff") format("woff");
   font-style: italic;
   font-weight: bold;
 }
 
 @font-face {
   font-family: Georgia;
-  src: url(/assets/fonts/georgia/Georgia.woff) format("woff");
+  src: url("../../assets/fonts/georgia/Georgia.woff") format("woff");
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
   font-family: Georgia;
-  src: url(/assets/fonts/georgia/georgia-bold.woff) format("woff");
+  src: url("../../assets/fonts/georgia/georgia-bold.woff") format("woff");
   font-style: normal;
   font-weight: bold;
 }
 
 @font-face {
   font-family: Georgia;
-  src: url(/assets/fonts/georgia/georgia-italic.woff) format("woff");
+  src: url("../../assets/fonts/georgia/georgia-italic.woff") format("woff");
   font-style: italic;
   font-weight: normal;
 }
 
 @font-face {
   font-family: Georgia;
-  src: url(/assets/fonts/georgia/georgia-bold-italic.woff) format("woff");
+  src: url("../../assets/fonts/georgia/georgia-bold-italic.woff") format("woff");
   font-style: italic;
   font-weight: bold;
 }
@@ -242,10 +242,6 @@
           box-shadow: 3px 3px 10px 3px #b9b6b6;
 }
 
-.friends__card:hover .friends__learn-more {
-  background-color: #f1cdb3;
-}
-
 .friends__learn-more {
   width: 18.7rem;
   height: 5.2rem;
@@ -266,6 +262,10 @@
   font-size: 1.7rem;
   letter-spacing: 0.06em;
   color: #292929;
+}
+
+.friends__learn-more:hover {
+  background-color: #f1cdb3;
 }
 
 .friends__navigation {
@@ -323,7 +323,7 @@
 .footer {
   width: 100vw;
   padding-top: 4rem;
-  background: url(/assets/images/noise_transparent@2x.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%), #211f20;
+  background: url("../../assets/images/noise_transparent.png"), radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%), #211f20;
 }
 
 .footer__wrapper {
@@ -453,6 +453,133 @@
   height: 3.2rem;
 }
 
+.modal {
+  position: fixed;
+  top: 10%;
+  left: 14.53125%;
+  width: 95.2rem;
+  height: 55.2rem;
+  z-index: 10000;
+  background: none;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
+}
+
+.modal.active {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.modal__close-button {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 2px solid #f1cdb3;
+  border-radius: 50%;
+  background: none;
+  width: 5.2rem;
+  height: 5.2rem;
+  font-size: 2rem;
+  cursor: pointer;
+  -webkit-transition: 100ms ease-in-out;
+  transition: 100ms ease-in-out;
+}
+
+.modal__close-button:active {
+  background-color: #f1cdb3;
+}
+
+.modal__close-button:hover {
+  font-size: 3rem;
+}
+
+.modal__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 94.5378151%;
+  height: 90.5797101%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #fafafa;
+  border-radius: 9px;
+  overflow: auto;
+}
+
+.modal__image {
+  width: auto;
+  height: 100%;
+}
+
+.modal__info {
+  padding-top: 1%;
+  padding-left: 2.9rem;
+}
+
+.modal__title {
+  font-family: Georgia, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 3.5rem;
+  line-height: 130%;
+  letter-spacing: 0.21rem;
+  margin-bottom: 1rem;
+}
+
+.modal__subtitle {
+  font-family: Georgia, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2rem;
+  line-height: 115%;
+  letter-spacing: 0.12rem;
+  margin-bottom: 4rem;
+}
+
+.modal__text {
+  font-family: Georgia, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  line-height: 110%;
+  letter-spacing: 0.09rem;
+  margin-bottom: 4rem;
+  max-width: 35rem;
+}
+
+.modal__list {
+  list-style-position: inside;
+  font-size: 1.5rem;
+  color: #f1cdb3;
+}
+
+.modal__list strong,
+.modal__list em {
+  color: black;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(41, 41, 41, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
 @media (min-width: 768px) and (max-width: 1279px) {
   .header__wrapper {
     max-width: 92.1875%;
@@ -503,6 +630,20 @@
   .footer__image {
     margin: 0 auto;
   }
+  .modal {
+    width: 68.2rem;
+    height: 40.2rem;
+  }
+  .modal__content {
+    width: 63rem;
+    height: 35rem;
+  }
+  .modal__subtitle {
+    margin-bottom: 1.5rem;
+  }
+  .modal__text {
+    margin-bottom: 2rem;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
@@ -536,7 +677,7 @@
   }
   .header .menu .burger:hover {
     cursor: pointer;
-    opacity: .9;
+    opacity: 0.9;
   }
   .friends {
     padding-top: 4.2rem;
@@ -645,6 +786,44 @@
   }
   .footer__image img {
     width: 100%;
+  }
+  .modal {
+    width: 27.1rem;
+    height: 39.3rem;
+    top: 8%;
+    left: 12.5%;
+  }
+  .modal__content {
+    width: 24rem;
+    height: 34.1rem;
+  }
+  .modal__image {
+    display: none;
+  }
+  .modal__title {
+    font-family: Georgia, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 3.5rem;
+    line-height: 130%;
+    letter-spacing: 0.21rem;
+  }
+  .modal__subtitle {
+    font-family: Georgia, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2rem;
+    line-height: 115%;
+    letter-spacing: 0.12rem;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  .modal__text {
+    font-size: 13px;
+    margin-bottom: 2.4rem;
+  }
+  .modal__list {
+    font-size: 12px;
   }
 }
 /*# sourceMappingURL=pets.css.map */
