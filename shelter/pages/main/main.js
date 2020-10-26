@@ -92,12 +92,12 @@ const pets = [
 
 // redirect to pets page on click "make a friend" button
 document.querySelector('.content-section__button').addEventListener('click', function () {
-  window.location.href = '../../pages/pets/pets.html';
+  window.location.href = '../pets/pets.html';
 });
 
 // redirect to pets page on click "get to know the rest" button
 document.querySelector('.pets__button').addEventListener('click', function () {
-  window.location.href = '../../pages/pets/pets.html';
+  window.location.href = '../pets/pets.html';
 });
 
 
