@@ -1,55 +1,55 @@
 @font-face {
   font-family: Arial;
-  src: url('../../assets/fonts/arial/ArialRegular.woff') format("woff");
+  src: url("../../assets/fonts/arial/ArialRegular.woff") format("woff");
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
   font-family: Arial;
-  src: url('../../assets/fonts/arial/ArialBold.woff') format("woff");
+  src: url("../../assets/fonts/arial/ArialBold.woff") format("woff");
   font-style: normal;
   font-weight: bold;
 }
 
 @font-face {
   font-family: Arial;
-  src: url('../../assets/fonts/arial/ArialItalic.woff') format("woff");
+  src: url("../../assets/fonts/arial/ArialItalic.woff") format("woff");
   font-style: italic;
   font-weight: normal;
 }
 
 @font-face {
   font-family: Arial;
-  src: url('../../assets/fonts/arial/ArialBoldItalic.woff') format("woff");
+  src: url("../../assets/fonts/arial/ArialBoldItalic.woff") format("woff");
   font-style: italic;
   font-weight: bold;
 }
 
 @font-face {
   font-family: Georgia;
-  src: url('../../assets/fonts/georgia/Georgia.woff') format("woff");
+  src: url("../../assets/fonts/georgia/Georgia.woff") format("woff");
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
   font-family: Georgia;
-  src: url('../../assets/fonts/georgia/georgia-bold.woff') format("woff");
+  src: url("../../assets/fonts/georgia/georgia-bold.woff") format("woff");
   font-style: normal;
   font-weight: bold;
 }
 
 @font-face {
   font-family: Georgia;
-  src: url('../../assets/fonts/georgia/georgia-italic.woff') format("woff");
+  src: url("../../assets/fonts/georgia/georgia-italic.woff") format("woff");
   font-style: italic;
   font-weight: normal;
 }
 
 @font-face {
   font-family: Georgia;
-  src: url('../../assets/fonts/georgia/georgia-bold-italic.woff') format("woff");
+  src: url("../../assets/fonts/georgia/georgia-bold-italic.woff") format("woff");
   font-style: italic;
   font-weight: bold;
 }
@@ -68,7 +68,7 @@ $color-dark-xl: #4c4c4c;
 $color-dark-2xl: #444444;
 $color-dark-3xl: #292929;
 
-$start-screen-gradient-background: url('../../assets/images/noise_transparent.png'),
+$start-screen-gradient-background: url("../../assets/images/noise_transparent.png"),
   radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
 
 @mixin h2 {
@@ -525,9 +525,8 @@ $start-screen-gradient-background: url('../../assets/images/noise_transparent.pn
     max-width: 103rem;
     margin: 0 auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-    column-gap: 12rem;
     row-gap: 5.5rem;
 
     figure {
@@ -613,7 +612,7 @@ $start-screen-gradient-background: url('../../assets/images/noise_transparent.pn
 .footer {
   width: 100vw;
   padding-top: 4rem;
-  background: url('../../assets/images/noise_transparent.png'),
+  background: url("../../assets/images/noise_transparent.png"),
     radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%), #211f20;
 
   &__wrapper {
