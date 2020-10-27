@@ -296,9 +296,6 @@ button.addEventListener('click', function () {
 });
 
 // Run
-showTime();
-setBgGreet();
-updateQuote();
 if (localStorage.getItem('name') !== '') {
   name.value = localStorage.getItem('name');
 }
@@ -306,5 +303,8 @@ if (localStorage.getItem('focus') !== '') {
   focus.value = localStorage.getItem('focus');
 }
 
+showTime();
+setBgGreet();
+updateQuote();
 
 
