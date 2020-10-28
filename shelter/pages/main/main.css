@@ -167,12 +167,16 @@
   color: #cdcdcd;
 }
 
-.list__link:active {
+.list__link.enabled:active {
   border-bottom: 3px solid #f1cdb3;
   color: #fafafa;
 }
 
-.list__link:hover {
+.list__link.inactive-link {
+  cursor: default;
+}
+
+.list__link__active:hover {
   color: #fafafa;
 }
 

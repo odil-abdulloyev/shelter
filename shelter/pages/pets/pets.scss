@@ -264,13 +264,17 @@ $start-screen-gradient-background: url("../../assets/images/noise_transparent.pn
   letter-spacing: 0.005rem;
   color: $color-dark-l;
 
-  &:active {
+  &.enabled:active {
     border-bottom: 3px solid $color-primary;
     padding-bottom: 0.2rem;
   }
 
-  &:hover {
+  &.enabled:hover {
     color: $color-dark-3xl;
+  }
+
+  &.disabled {
+    cursor: default;
   }
 }
 
