@@ -261,12 +261,16 @@ $start-screen-gradient-background: url("../../assets/images/noise_transparent.pn
       color: $color-dark-s;
     }
 
-    &:active {
+    &.enabled:active {
       border-bottom: 3px solid $color-primary;
       color: $color-light-s;
     }
 
-    &:hover {
+    &.inactive-link {
+      cursor: default;
+    }
+
+    &__active:hover {
       color: $color-light-s;
     }
   }

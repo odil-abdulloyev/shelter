@@ -160,13 +160,17 @@
   color: #545454;
 }
 
-.menu a:active {
+.menu a.enabled:active {
   border-bottom: 3px solid #f1cdb3;
   padding-bottom: 0.2rem;
 }
 
-.menu a:hover {
+.menu a.enabled:hover {
   color: #292929;
+}
+
+.menu a.disabled {
+  cursor: default;
 }
 
 .friends {
