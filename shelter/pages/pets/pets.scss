@@ -1,0 +1,838 @@
+@font-face {
+  font-family: Arial;
+  src: url("../../assets/fonts/arial/ArialRegular.woff") format("woff");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Arial;
+  src: url("../../assets/fonts/arial/ArialBold.woff") format("woff");
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Arial;
+  src: url("../../assets/fonts/arial/ArialItalic.woff") format("woff");
+  font-style: italic;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Arial;
+  src: url("../../assets/fonts/arial/ArialBoldItalic.woff") format("woff");
+  font-style: italic;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Georgia;
+  src: url("../../assets/fonts/georgia/Georgia.woff") format("woff");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Georgia;
+  src: url("../../assets/fonts/georgia/georgia-bold.woff") format("woff");
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Georgia;
+  src: url("../../assets/fonts/georgia/georgia-italic.woff") format("woff");
+  font-style: italic;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Georgia;
+  src: url("../../assets/fonts/georgia/georgia-bold-italic.woff") format("woff");
+  font-style: italic;
+  font-weight: bold;
+}
+
+$color-primary: #f1cdb3;
+$color-primary-light: #fddcc4;
+
+$color-light-s: #fafafa;
+$color-light-l: #f6f6f6;
+$color-light-xl: #ffffff;
+
+$color-dark-s: #cdcdcd;
+$color-dark-m: #b2b2b2;
+$color-dark-l: #545454;
+$color-dark-xl: #4c4c4c;
+$color-dark-2xl: #444444;
+$color-dark-3xl: #292929;
+
+$start-screen-gradient-background: url("../../assets/images/noise_transparent.png"),
+  radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
+
+@mixin h2 {
+  font: {
+    family: Georgia, serif;
+    size: 4.4rem;
+    style: normal;
+    weight: normal;
+  }
+  line-height: 130%;
+}
+
+@mixin h3 {
+  font: {
+    family: Georgia, serif;
+    style: normal;
+    weight: normal;
+    size: 3.5rem;
+  }
+  line-height: 130%;
+  letter-spacing: 0.21rem;
+}
+
+@mixin h3-mobile {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2.5rem;
+  line-height: 130%;
+  letter-spacing: 0.16rem;
+}
+
+@mixin h4 {
+  font: {
+    family: Georgia, serif;
+    style: normal;
+    weight: normal;
+    size: 2rem;
+  }
+  line-height: 115%;
+  letter-spacing: 0.12rem;
+}
+
+@mixin h5 {
+  font: {
+    family: Georgia, serif;
+    style: normal;
+    weight: normal;
+    size: 1.5rem;
+  }
+  line-height: 110%;
+  letter-spacing: 0.09rem;
+}
+
+@mixin paragraph-l {
+  font: {
+    family: Arial, sans-serif;
+    size: 1.5rem;
+  }
+  line-height: 160%;
+}
+
+@mixin paragraph-s {
+  font: {
+    family: Arial, sans-serif;
+    style: italic;
+    weight: normal;
+    size: 1.2rem;
+  }
+  line-height: 150%;
+}
+
+@mixin logo_title {
+  font: {
+    family: Georgia, serif;
+    style: normal;
+    weight: normal;
+    size: 3.2rem;
+  }
+  line-height: 110%;
+  letter-spacing: 0.2rem;
+}
+
+@mixin logo_subtitle {
+  font: {
+    family: Arial, sans-serif;
+    size: 1.3rem;
+  }
+  line-height: 1.5rem;
+  letter-spacing: 0.13rem;
+}
+
+@mixin pets-arrow {
+  max-width: 5.2rem;
+  max-height: 5.2rem;
+  border: 2px solid $color-primary;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.3rem 1.9rem;
+}
+
+@mixin on-hover {
+  cursor: pointer;
+  background-color: $color-primary-light;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: normal;
+}
+
+:root {
+  font-size: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.wrapper {
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+// Header start
+
+.hidden {
+  display: none;
+}
+
+.header {
+  width: 100vw;
+  height: 12rem;
+  padding-top: 3rem;
+  background: $color-light-xl;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  &__wrapper {
+    height: 6rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.logo {
+  width: 18.7rem;
+  height: 6rem;
+
+  &__title {
+    margin-bottom: 1rem;
+    @include logo_title();
+    color: $color-dark-l;
+  }
+
+  &__subtitle {
+    text-align: center;
+    @include logo_subtitle();
+    color: $color-dark-3xl;
+  }
+}
+
+.menu {
+  max-width: 44.3rem;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 3.5rem;
+  list-style-type: none;
+
+  .underlined {
+    border-bottom: 3px solid $color-primary;
+    padding-bottom: 0.2rem;
+  }
+}
+
+.menu a {
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  line-height: 160%;
+  letter-spacing: 0.005rem;
+  color: $color-dark-l;
+
+  &.enabled:active {
+    border-bottom: 3px solid $color-primary;
+    padding-bottom: 0.2rem;
+  }
+
+  &.enabled:hover {
+    color: $color-dark-3xl;
+  }
+
+  &.disabled {
+    cursor: default;
+  }
+}
+
+// Friends section start
+
+.friends {
+  width: 100vw;
+  padding: 8rem 0 10rem 0;
+  background-color: $color-light-l;
+
+  &__title {
+    margin: 0 auto 4.5rem auto;
+    @include h3();
+    max-width: 40rem;
+    color: $color-dark-l;
+    text-align: center;
+
+    span {
+      display: block;
+    }
+  }
+
+  &__slider {
+    margin-bottom: 4.5rem;
+    padding: 1.5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 4rem;
+    row-gap: 3rem;
+  }
+
+  &__card {
+    width: 27rem;
+    height: 43.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 3rem;
+    background-color: $color-light-s;
+    border-radius: 0.9rem;
+
+    figcaption {
+      font-family: Georgia, serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 2rem;
+      line-height: 2.3rem;
+      letter-spacing: 0.06em;
+      color: $color-dark-l;
+    }
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 3px 3px 10px 3px rgb(185, 182, 182);
+    }
+  }
+
+  &__learn-more {
+    width: 18.7rem;
+    height: 5.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid $color-primary;
+    border-radius: 10rem;
+
+    font-family: Georgia, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.7rem;
+    letter-spacing: 0.06em;
+    color: $color-dark-3xl;
+
+    &:hover {
+      background-color: $color-primary;
+    }
+  }
+
+  &__navigation {
+    width: 34rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+    :nth-child(1),
+    :nth-child(2) {
+      background-color: transparent;
+      border: 2px solid $color-dark-s;
+      color: $color-dark-s;
+    }
+
+    :nth-child(3) {
+      background-color: $color-primary;
+      border: none;
+      color: $color-dark-3xl;
+    }
+
+    :nth-child(4),
+    :nth-child(5) {
+      background-color: transparent;
+      border: 2px solid $color-primary;
+      color: $color-dark-3xl;
+    }
+
+    button {
+      width: 5.2rem;
+      height: 5.2rem;
+      display: block;
+      border-radius: 10rem;
+
+      font-family: Georgia, serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 2rem;
+      letter-spacing: 0.06rem;
+
+      &:active {
+        background-color: $color-primary;
+        border: none;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+// Friends section end
+
+// Footer start
+
+.footer {
+  width: 100vw;
+  padding-top: 4rem;
+  background: url("../../assets/images/noise_transparent.png"),
+    radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%), #211f20;
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__questions {
+    max-width: 27.9rem;
+    margin-top: 1.6rem;
+    margin-bottom: 6rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 4rem;
+
+    .questions-title {
+      @include h3();
+      color: $color-light-xl;
+    }
+
+    .questions-list {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      row-gap: 4rem;
+
+      li a {
+        height: 3.2rem;
+        display: flex;
+        align-items: center;
+        column-gap: 2rem;
+        @include h4();
+        color: $color-primary;
+      }
+    }
+  }
+
+  &__visit {
+    max-width: 30.2rem;
+    margin: 1.6rem auto 6rem auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3.3rem;
+
+    .visit-title {
+      @include h3();
+      color: $color-light-xl;
+    }
+
+    .visit-list {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      row-gap: 3.3rem;
+    }
+
+    li a {
+      display: flex;
+      align-items: center;
+      column-gap: 2rem;
+      @include h4();
+      color: $color-primary;
+    }
+
+    li:nth-child(1) {
+      height: 4.6rem;
+    }
+
+    li:nth-child(2) {
+      height: 3.2rem;
+    }
+  }
+}
+
+// Footer end
+
+// Modal Start
+
+.modal {
+  position: fixed;
+  top: 10%;
+  left: 14.53125%;
+  width: 95.2rem;
+  height: 55.2rem;
+  z-index: 10000;
+  background: none;
+  transform: scale(0);
+  transition: 200ms ease-in-out;
+
+  &.active {
+    transform: scale(1);
+  }
+
+  &__close-button {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 2px solid $color-primary;
+    border-radius: 50%;
+    background: none;
+    width: 5.2rem;
+    height: 5.2rem;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: 100ms ease-in-out;
+
+    &:active {
+      background-color: $color-primary;
+    }
+
+    &:hover {
+      font-size: 3rem;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 94.5378151%;
+    height: 90.5797101%;
+    display: flex;
+    background: $color-light-s;
+    border-radius: 9px;
+    overflow: auto;
+  }
+
+  &__image {
+    width: auto;
+    height: 100%;
+  }
+
+  &__info {
+    padding-top: 1%;
+    padding-left: 2.9rem;
+  }
+
+  &__title {
+    @include h3();
+    margin-bottom: 1rem;
+  }
+
+  &__subtitle {
+    @include h4();
+    margin-bottom: 4rem;
+  }
+
+  &__text {
+    @include h5();
+    margin-bottom: 4rem;
+    max-width: 35rem;
+  }
+
+  &__list {
+    list-style-position: inside;
+    font-size: 1.5rem;
+    color: $color-primary;
+
+    strong,
+    em {
+      color: black;
+    }
+  }
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(41, 41, 41, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: 200ms ease-in-out;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+// Modal end
+
+// Styles for displays with 768px <= width <= 1279
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .header {
+    &__wrapper {
+      max-width: 92.1875%;
+      margin: 0 auto;
+    }
+  }
+
+  .friends {
+    padding-top: 7rem;
+    padding-bottom: 7.6rem;
+
+    &__title {
+      margin-bottom: 2.5rem;
+      height: auto;
+    }
+
+    &__slider {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      figure:nth-child(7),
+      figure:nth-child(8) {
+        display: none;
+      }
+    }
+
+    &__navigation {
+      margin-top: 4rem;
+    }
+  }
+
+  .footer {
+    padding-top: 0;
+
+    &__wrapper {
+      margin: 0 auto;
+      width: 83.3333333333%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    &__questions {
+      margin-top: 3rem;
+    }
+
+    &__visit {
+      margin-top: 3rem;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    &__image {
+      margin: 0 auto;
+    }
+  }
+
+  .modal {
+    width: 68.2rem;
+    height: 40.2rem;
+
+    &__content {
+      width: 63rem;
+      height: 35rem;
+    }
+
+    &__subtitle {
+      margin-bottom: 1.5rem;
+    }
+
+    &__text {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+// Styles for displays with 320px <= width <= 767px
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .wrapper {
+    max-width: 93.75%;
+  }
+
+  .header {
+    .menu {
+      li {
+        display: none;
+      }
+
+      .burger {
+        position: absolute;
+        top: 4.9rem;
+        right: 5.3rem;
+        width: 3rem;
+        height: 2.2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        span {
+          width: 100%;
+          height: 2px;
+          background-color: #000000;
+        }
+
+        &:hover {
+          cursor: pointer;
+          opacity: 0.9;
+        }
+      }
+    }
+  }
+
+  .friends {
+    padding-top: 4.2rem;
+    padding-bottom: 4.2rem;
+
+    &__title {
+      @include h3-mobile();
+      margin-bottom: 4.2rem;
+    }
+
+    &__slider {
+      padding: 0;
+      margin-bottom: 4.2rem;
+      flex-direction: column;
+      align-items: center;
+
+      :nth-child(4),
+      :nth-child(5),
+      :nth-child(6),
+      :nth-child(7),
+      :nth-child(8) {
+        display: none;
+      }
+    }
+
+    &__navigation {
+      max-width: 30rem;
+    }
+  }
+
+  .footer {
+    padding-top: 3rem;
+
+    &__wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__questions {
+      width: 100%;
+      margin-top: 0;
+      margin-bottom: 4rem;
+      display: flex;
+      justify-content: center;
+
+      .questions-title {
+        @include h3-mobile();
+        text-align: center;
+      }
+
+      .questions-list {
+        a {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+
+    &__visit {
+      width: 100%;
+      margin-top: 0;
+      margin-bottom: 4rem;
+      display: flex;
+      justify-content: center;
+      row-gap: 0;
+
+      .visit-title {
+        @include h3-mobile();
+        width: 90%;
+        text-align: center;
+        margin: 0 auto 4rem;
+      }
+
+      li:first-child {
+        height: 3.2rem;
+        margin-bottom: 2.1rem;
+      }
+    }
+
+    &__image {
+      width: 86.6666667%;
+      max-width: 30rem;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .modal {
+    width: 27.1rem;
+    height: 39.3rem;
+    top: 8%;
+    left: 12.5%;
+
+    &__content {
+      width: 24rem;
+      height: 34.1rem;
+    }
+
+    &__image {
+      display: none;
+    }
+
+    &__title {
+      @include h3();
+    }
+
+    &__subtitle {
+      @include h4();
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    &__text {
+      font-size: 13px;
+      margin-bottom: 2.4rem;
+    }
+
+    &__list {
+      font-size: 12px;
+    }
+  }
+}
