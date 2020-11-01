@@ -16,12 +16,16 @@ export default class Keyboard {
     this.rowsOrder = rowsOrder;
     this.keysPressed = {};
     this.isCaps = false;
+    this.soundOn = false;
     this.specialKeySound = document.createElement('audio');
     this.specialKeySound.setAttribute('src', 'sounds/special.wav');
+    this.specialKeySound.playbackRate = 2;
     this.enKeySound = document.createElement('audio');
     this.enKeySound.setAttribute('src', 'sounds/en.wav');
+    this.enKeySound.playbackRate = 2;
     this.ruKeySound = document.createElement('audio');
     this.ruKeySound.setAttribute('src', 'sounds/ru.wav');
+    this.ruKeySound.playbackRate = 2;
     document.body.appendChild(this.specialKeySound);
     document.body.appendChild(this.enKeySound);
     document.body.appendChild(this.ruKeySound);
@@ -68,7 +72,9 @@ export default class Keyboard {
     const { dataset: { code } } = keyDiv;
     keyDiv.addEventListener('mouseleave', this.resetButtonState);
     this.handleEvent({ code, type: e.type });
-    this.playSound(code);
+    if (this.soundOn) {
+      this.playSound(code);
+    }
   };
 
   // Ф-я обработки событий
@@ -83,7 +89,6 @@ export default class Keyboard {
     // НАЖАТИЕ КНОПКИ
     if (type.match(/keydown|mousedown/)) {
       if (!type.match(/mouse/)) e.preventDefault();
-
 
       if (code.match(/Shift/)) this.shiftKey = true;
 
@@ -107,6 +112,17 @@ export default class Keyboard {
         keyObj.div.classList.remove('active');
       }
 
+      // play sound on keydown
+      if (this.soundOn) {
+        this.playSound(code);
+      }
+
+      if (code.match(/Win/) && !this.soundOn) {
+        this.soundOn = true;
+      } else if (code.match(/Win/) && this.soundOn) {
+        this.soundOn = false;
+        keyObj.div.classList.remove('active');
+      }
 
       // Определяем, какой символ мы пишем в консоль (спец или основной)
       if (!this.isCaps) {
@@ -134,9 +150,8 @@ export default class Keyboard {
       if (code.match(/Control/)) this.ctrKey = false;
       if (code.match(/Alt/)) this.altKey = false;
 
-      if (!code.match(/Caps/)) keyObj.div.classList.remove('active');
+      if (!code.match(/Caps/) && !code.match(/Win/)) keyObj.div.classList.remove('active');
     }
-    this.playSound(code);
   }
 
   resetButtonState = ({ target: { dataset: { code } } }) => {
@@ -153,7 +168,7 @@ export default class Keyboard {
 
   resetPressedButtons = (targetCode) => {
     if (!this.keysPressed[targetCode]) return;
-    if (!this.isCaps) this.keysPressed[targetCode].div.classList.remove('active');
+    if (!this.isCaps && !this.soundOn) this.keysPressed[targetCode].div.classList.remove('active');
     this.keysPressed[targetCode].div.removeEventListener('mouseleave', this.resetButtonState);
     delete this.keysPressed[targetCode];
   }
