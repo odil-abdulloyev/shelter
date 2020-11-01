@@ -17,11 +17,11 @@ export default class Keyboard {
     this.keysPressed = {};
     this.isCaps = false;
     this.specialKeySound = document.createElement('audio');
-    this.specialKeySound.setAttribute('src', '../sounds/special.wav');
+    this.specialKeySound.setAttribute('src', 'sounds/special.wav');
     this.enKeySound = document.createElement('audio');
-    this.enKeySound.setAttribute('src', '../sounds/en.wav');
+    this.enKeySound.setAttribute('src', 'sounds/en.wav');
     this.ruKeySound = document.createElement('audio');
-    this.ruKeySound.setAttribute('src', '../sounds/ru.wav');
+    this.ruKeySound.setAttribute('src', 'sounds/ru.wav');
     document.body.appendChild(this.specialKeySound);
     document.body.appendChild(this.enKeySound);
     document.body.appendChild(this.ruKeySound);
