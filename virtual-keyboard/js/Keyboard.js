@@ -7,9 +7,7 @@ import language from './layouts/index.js'; // { en, ru }
 import Key from './Key.js';
 
 const main = create('main', '',
-  [create('h1', 'title', 'RSS Virtual Keyboard'),
-  create('h3', 'subtitle', 'Windows keyboard that has been made under Linux'),
-  create('p', 'hint', 'Use left <kbd>Ctrl</kbd> + <kbd>Alt</kbd> to switch language. Last language saves in localStorage')]);
+  [create('h1', 'title', 'RSS Virtual Keyboard')]);
 
 export default class Keyboard {
   constructor(rowsOrder) {
@@ -18,7 +16,12 @@ export default class Keyboard {
     this.isCaps = false;
     this.soundOn = false;
     window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    this.recognition = new SpeechRecognition();
+    try {
+      this.recognition = new SpeechRecognition();
+    } catch (ex) {
+      console.log('Speech recognition is not supported in your browser');
+    }
+
     // this.recognition.interimResults = true;
     // this.recognition.lang = 'en-US';
     this.voiceOn = false;
@@ -99,8 +102,7 @@ export default class Keyboard {
 
       if (code.match(/Control/)) this.ctrKey = true;
       if (code.match(/Alt/)) this.altKey = true;
-      // if (code.match(/Control/) && this.altKey) this.switchLanguage();
-      // if (code.match(/Alt/) && this.ctrKey) this.switchLanguage();
+
       if (code.match(/AltRight/)) {
         if (this.keyBase === language.ru) {
           keyObj.div.textContent = 'en';
@@ -121,10 +123,10 @@ export default class Keyboard {
         keyObj.div.classList.remove('active');
       }
 
-      if (code.match(/Shift/) && !this.shiftKey) {
+      if (code.match(/ShiftLeft/) && !this.shiftKey) {
         this.shiftKey = true;
         this.switchUpperCase(true);
-      } else if (code.match(/Shift/) && this.shiftKey) {
+      } else if (code.match(/ShiftLeft/) && this.shiftKey) {
         this.shiftKey = false;
         this.switchUpperCase(false);
         keyObj.div.classList.remove('active');
@@ -151,6 +153,19 @@ export default class Keyboard {
         keyObj.div.classList.remove('active');
       }
 
+      // Hide keyboard
+      if (code.match(/ShiftRight/)) {
+        main.style.overflow = 'hidden';
+        this.container.classList.remove('show');
+        this.container.classList.add('hidden');
+      }
+
+      // Show keyboard
+      this.output.addEventListener('click', () => {
+        this.container.classList.remove('hidden');
+        this.container.classList.add('show');
+      });
+
       // Определяем, какой символ мы пишем в консоль (спец или основной)
       if (!this.isCaps) {
         // если не зажат капс, смотрим не зажат ли шифт
@@ -172,7 +187,7 @@ export default class Keyboard {
       // if (code.match(/Control/)) this.ctrKey = false;
       // if (code.match(/Alt/)) this.altKey = false;
 
-      if (!code.match(/Caps|Win|ControlRight|Shift/)) keyObj.div.classList.remove('active');
+      if (!code.match(/Caps|Win|ControlRight|ShiftLeft/)) keyObj.div.classList.remove('active');
     }
   }
 

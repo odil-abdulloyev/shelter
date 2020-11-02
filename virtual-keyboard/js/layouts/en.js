@@ -270,7 +270,7 @@ export default [
     code: 'Slash',
   },
   {
-    small: 'Shift',
+    small: '&#10003;',
     shift: null,
     code: 'ShiftRight',
   },
