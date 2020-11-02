@@ -172,10 +172,10 @@ export default class Keyboard {
 
       if (code.match(/ControlRight/) && !this.voiceOn) {
         this.voiceOn = true;
-        this.recognition.start();
+        if (this.recognition) this.recognition.start();
       } else if (code.match(/ControlRight/) && this.voiceOn) {
         this.voiceOn = false;
-        this.recognition.stop();
+        if (this.recognition) this.recognition.stop();
         keyObj.div.classList.remove('active');
       }
 
