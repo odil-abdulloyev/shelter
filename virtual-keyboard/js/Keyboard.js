@@ -33,7 +33,7 @@ export default class Keyboard {
 
       this.output.textContent += transcript;
     });
-    this.recognition.addEventListener('end', this.recognition.start);
+    // this.recognition.addEventListener('end', this.recognition.start);
 
     this.specialKeySound = document.createElement('audio');
     this.specialKeySound.setAttribute('src', 'sounds/special.wav');
@@ -160,7 +160,6 @@ export default class Keyboard {
       if (code.match(/ControlRight/) && !this.voiceOn) {
         this.voiceOn = true;
         this.recognition.start();
-        // this.getVoiceInput();
       } else if (code.match(/ControlRight/) && this.voiceOn) {
         this.voiceOn = false;
         this.recognition.stop();
@@ -309,21 +308,6 @@ export default class Keyboard {
     } else if (this.keyBase === language.ru) {
       this.ruKeySound.play();
     }
-  }
-
-  getVoiceInput() {
-    this.recognition.addEventListener('result', e => {
-      const transcript = Array.from(e.results)
-        .map(result => result[0])
-        .map(result => result.transcript)
-        .join('');
-
-      this.output.textContent = transcript;
-    });
-
-    // this.recognition.addEventListener('end', this.recognition.start);
-
-    this.recognition.start();
   }
 
   printToOutput(keyObj, symbol) {
