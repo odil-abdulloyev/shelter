@@ -21,7 +21,7 @@ export default class Keyboard {
     } catch (ex) {
       console.log('Speech recognition is not supported in your browser');
     }
-    this.recognition.interimResults = true;
+    // this.recognition.interimResults = true;
     this.voiceOn = false;
     this.recognition.addEventListener('result', e => {
       const transcript = Array.from(e.results)
@@ -31,9 +31,7 @@ export default class Keyboard {
 
       this.output.textContent += transcript;
     });
-    this.recognition.addEventListener('end', function() {
-      if (this.voiceOn) this.recognition.start();
-    });
+    this.recognition.addEventListener('end', this.recognition.start);
 
     this.specialKeySound = document.createElement('audio');
     this.specialKeySound.setAttribute('src', 'sounds/special.wav');
