@@ -31,7 +31,9 @@ export default class Keyboard {
 
       this.output.textContent += transcript;
     });
-    if (this.voiceOn) this.recognition.addEventListener('end', this.recognition.start);
+    this.recognition.addEventListener('end', function() {
+      if (this.voiceOn) this.recognition.start();
+    });
 
     this.specialKeySound = document.createElement('audio');
     this.specialKeySound.setAttribute('src', 'sounds/special.wav');
