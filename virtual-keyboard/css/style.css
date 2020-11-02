@@ -18,10 +18,10 @@ main {
 }
 
 .keyboard {
+  max-width: 1020px;
   display: grid;
   grid-row-gap: 10px;
   padding: 10px;
-  border: 1px solid;
   position: relative;
   overflow: hidden;
   background: #2c2c2c;
@@ -34,13 +34,15 @@ main {
 }
 
 .keyboard__row {
+  width: 100%;
   display: grid;
-  grid-gap: 10px;
-  grid-row-gap: 10px;
+  grid-gap: 1%;
+  grid-row-gap: 1%;
   height: 50px;
 }
 
 .keyboard__key {
+  padding: 2px 3px;
   display: flex;
   cursor: pointer;
   border-radius: 3px;
@@ -55,6 +57,10 @@ main {
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   user-select: none;
+}
+
+.keyboard__key:not([data-code="Space"]) {
+  max-width: 70px;
 }
 
 [data-fn="false"].active {
@@ -83,44 +89,8 @@ main {
   font-size: 16px;
 }
 
-[data-code="CapsLock"] {
-  width: 86px;
-}
-
-[data-code="ShiftLeft"] {
-  width: 100px;
-}
-
-[data-code="ShiftRight"] {
-  width: 120px;
-}
-
-[data-code="Enter"] {
-  width: 100px;
-}
-
-[data-code="Tab"] {
-  width: 76px;
-}
-
-[data-code="ControlLeft"] {
-  width: 76px;
-}
-
-[data-code="ControlRight"] {
-  width: 60px;
-}
-
-[data-code="Backspace"] {
-  width: 115px;
-}
-
 [data-code="Space"] {
   width: 420px;
-}
-
-[data-code="AltLeft"], [data-code="AltRight"] {
-  width: 76px;
 }
 
 [data-code="ArrowLeft"], [data-code="ArrowUp"], [data-code="ArrowDown"], [data-code="ArrowRight"] {
@@ -205,6 +175,29 @@ textarea.output {
   transition: all .3s ease-in-out;
 }
 
+@media (max-width: 1020px) {
+  [data-code="Space"] {
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .keyboard {
+    padding: 2px;
+    row-gap: 2px;
+    column-gap: 2px;
+  }
+  [data-code="Space"] {
+    width: 50px;
+  }
+  .letter, [data-fn="true"]>.letter {
+    font-size: 14px;
+  }
+  .keyboard__row {
+    max-height: 38px;
+  }
+}
+
 @keyframes fadeInOut {
   0% {
     opacity: 0.5;
@@ -224,10 +217,10 @@ textarea.output {
   }
   100% {
     opacity: 0;
-    transform: scale(2.5);
-    -webkit-transform: scale(2.5);
-    -moz-transform: scale(2.5);
-    -ms-transform: scale(2.5);
-    -o-transform: scale(2.5);
+    transform: scale(2);
+    -webkit-transform: scale(2);
+    -moz-transform: scale(2);
+    -ms-transform: scale(2);
+    -o-transform: scale(2);
   }
 }
