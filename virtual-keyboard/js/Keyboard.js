@@ -18,36 +18,48 @@ export default class Keyboard {
     window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     try {
       this.recognition = new SpeechRecognition();
+      this.recognition.addEventListener('result', e => {
+        const transcript = Array.from(e.results)
+          .map(result => result[0])
+          .map(result => result.transcript)
+          .join(' ');
+
+        if (this.output.textContent !== undefined && this.output.textContent !== null) {
+          this.output.textContent += transcript;
+        }
+      });
+      this.recognition.addEventListener('end', () => {
+        if (this.voiceOn) this.recognition.start();
+      });
     } catch (ex) {
       console.log('Speech recognition is not supported in your browser');
     }
     this.voiceOn = false;
-    this.recognition.addEventListener('result', e => {
-      const transcript = Array.from(e.results)
-        .map(result => result[0])
-        .map(result => result.transcript)
-        .join(' ');
-
-      if (this.output.textContent !== undefined && this.output.textContent !== null) {
-        this.output.textContent += transcript;
-      }
-    });
-    this.recognition.addEventListener('end', () => {
-      if (this.voiceOn) this.recognition.start();
-    });
 
     this.specialKeySound = document.createElement('audio');
     this.specialKeySound.setAttribute('src', 'sounds/special.wav');
     this.specialKeySound.playbackRate = 2;
     this.enKeySound = document.createElement('audio');
     this.enKeySound.setAttribute('src', 'sounds/en.wav');
-    this.enKeySound.playbackRate = 2;
+    this.enKeySound.playbackRate = 1;
     this.ruKeySound = document.createElement('audio');
     this.ruKeySound.setAttribute('src', 'sounds/ru.wav');
     this.ruKeySound.playbackRate = 2;
+    this.returnKeySound = document.createElement('audio');
+    this.returnKeySound.setAttribute('src', 'sounds/enter.wav');
+    this.backspaceKeySound = document.createElement('audio');
+    this.backspaceKeySound.setAttribute('src', 'sounds/backspace.wav');
+    this.shiftKeySound = document.createElement('audio');
+    this.shiftKeySound.setAttribute('src', 'sounds/shift.wav');
+    this.capslockKeySound = document.createElement('audio');
+    this.capslockKeySound.setAttribute('src', 'sounds/capslock.wav');
     document.body.appendChild(this.specialKeySound);
     document.body.appendChild(this.enKeySound);
     document.body.appendChild(this.ruKeySound);
+    document.body.appendChild(this.returnKeySound);
+    document.body.appendChild(this.backspaceKeySound);
+    document.body.appendChild(this.shiftKeySound);
+    document.body.appendChild(this.capslockKeySound);
   }
 
   init(langCode) {
@@ -302,7 +314,15 @@ export default class Keyboard {
   }
 
   playSound(code) {
-    if (code && code.match(/Enter|Shift|Caps|Tab|Control|Alt|Delete|Backspace|Win/)) {
+    if (code && code.match(/Enter/)) {
+      this.returnKeySound.play();
+    } else if (code && code.match(/Backspace/)) {
+      this.backspaceKeySound.play();
+    } else if (code && code.match(/ShiftLeft/)) {
+      this.shiftKeySound.play();
+    } else if (code && code.match(/Caps/)) {
+      this.capslockKeySound.play();
+    } else if (code && code.match(/ShiftRight|Tab|Control|Alt|Delete|Win/)) {
       this.specialKeySound.play();
     } else if (this.keyBase === language.en) {
       this.enKeySound.play();
