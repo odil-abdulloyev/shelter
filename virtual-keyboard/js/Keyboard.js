@@ -126,6 +126,7 @@ export default class Keyboard {
       if (code.match(/ShiftLeft/) && !this.shiftKey) {
         this.shiftKey = true;
         this.switchUpperCase(true);
+        document.querySelectorAll('.sub').forEach(el => el.style.fontSize = '14px');
       } else if (code.match(/ShiftLeft/) && this.shiftKey) {
         this.shiftKey = false;
         this.switchUpperCase(false);

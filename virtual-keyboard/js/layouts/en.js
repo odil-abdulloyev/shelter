@@ -65,17 +65,17 @@ export default [
     code: 'Equal',
   },
   {
-    small: 'Backspace',
+    small: '&#9003;',
     shift: null,
     code: 'Backspace',
   },
   {
-    small: 'Delete',
+    small: '&#8998;',
     shift: null,
     code: 'Delete',
   },
   {
-    small: 'Tab',
+    small: '&#8677;',
     shift: null,
     code: 'Tab',
   },
@@ -140,12 +140,12 @@ export default [
     code: 'BracketRight',
   },
   {
-    small: 'Enter',
+    small: '&#9166;',
     shift: null,
     code: 'Enter',
   },
   {
-    small: 'CapsLock',
+    small: '&#8682;',
     shift: null,
     code: 'CapsLock',
   },
@@ -210,7 +210,7 @@ export default [
     code: 'Backslash',
   },
   {
-    small: 'Shift',
+    small: '&#8679;',
     shift: null,
     code: 'ShiftLeft',
   },
@@ -285,7 +285,7 @@ export default [
     code: 'AltLeft',
   },
   {
-    small: ' ',
+    small: '&#9251;',
     shift: null,
     code: 'Space',
   },
@@ -295,7 +295,7 @@ export default [
     code: 'AltRight',
   },
   {
-    small: 'Voice',
+    small: '&#127897;',
     shift: null,
     code: 'ControlRight',
   },
@@ -320,7 +320,7 @@ export default [
     code: 'ArrowRight',
   },
   {
-    small: 'Sound',
+    small: '&#128266;',
     shift: null,
     code: 'Win',
   },
