@@ -14,6 +14,7 @@ body {
 
 main {
   width: 74%;
+  max-width: 1020px;
   margin: auto;
 }
 
@@ -182,13 +183,16 @@ textarea.output {
 }
 
 @media (max-width: 768px) {
+  main {
+    width: 95%;
+  }
   .keyboard {
     padding: 2px;
     row-gap: 2px;
     column-gap: 2px;
   }
   [data-code="Space"] {
-    width: 50px;
+    min-width: 50px;
   }
   .letter, [data-fn="true"]>.letter {
     font-size: 14px;
