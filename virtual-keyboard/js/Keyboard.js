@@ -17,6 +17,11 @@ export default class Keyboard {
     this.keysPressed = {};
     this.isCaps = false;
     this.soundOn = false;
+    window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    this.recognition = new SpeechRecognition();
+    // this.recognition.interimResults = true;
+    // this.recognition.lang = 'en-US';
+    this.voiceOn = false;
     this.specialKeySound = document.createElement('audio');
     this.specialKeySound.setAttribute('src', 'sounds/special.wav');
     this.specialKeySound.playbackRate = 2;
@@ -90,16 +95,12 @@ export default class Keyboard {
     if (type.match(/keydown|mousedown/)) {
       if (!type.match(/mouse/)) e.preventDefault();
 
-      if (code.match(/Shift/)) this.shiftKey = true;
-
-      if (this.shiftKey) this.switchUpperCase(true);
-
       if (code.match(/Control|Alt|Caps/) && e.repeat) return;
 
       if (code.match(/Control/)) this.ctrKey = true;
       if (code.match(/Alt/)) this.altKey = true;
-      if (code.match(/Control/) && this.altKey) this.switchLanguage();
-      if (code.match(/Alt/) && this.ctrKey) this.switchLanguage();
+      // if (code.match(/Control/) && this.altKey) this.switchLanguage();
+      // if (code.match(/Alt/) && this.ctrKey) this.switchLanguage();
       if (code.match(/AltRight/)) {
         if (this.keyBase === language.ru) {
           keyObj.div.textContent = 'en';
@@ -120,6 +121,15 @@ export default class Keyboard {
         keyObj.div.classList.remove('active');
       }
 
+      if (code.match(/Shift/) && !this.shiftKey) {
+        this.shiftKey = true;
+        this.switchUpperCase(true);
+      } else if (code.match(/Shift/) && this.shiftKey) {
+        this.shiftKey = false;
+        this.switchUpperCase(false);
+        keyObj.div.classList.remove('active');
+      }
+
       // play sound on keydown/mousedown
       if (this.soundOn) {
         this.playSound(code);
@@ -129,6 +139,15 @@ export default class Keyboard {
         this.soundOn = true;
       } else if (code.match(/Win/) && this.soundOn) {
         this.soundOn = false;
+        keyObj.div.classList.remove('active');
+      }
+
+      if (code.match(/ControlRight/) && !this.voiceOn) {
+        this.voiceOn = true;
+        this.getVoiceInput();
+      } else if (code.match(/ControlRight/) && this.voiceOn) {
+        this.voiceOn = false;
+        this.recognition.stop();
         keyObj.div.classList.remove('active');
       }
 
@@ -150,24 +169,14 @@ export default class Keyboard {
       // ОТЖАТИЕ КНОПКИ
     } else if (e.type.match(/keyup|mouseup/)) {
       this.resetPressedButtons(code);
-      // if (code.match(/Shift/) && !this.keysPressed[code])
-      if (code.match(/Shift/)) {
-        this.shiftKey = false;
-        this.switchUpperCase(false);
-      }
-      if (code.match(/Control/)) this.ctrKey = false;
-      if (code.match(/Alt/)) this.altKey = false;
+      // if (code.match(/Control/)) this.ctrKey = false;
+      // if (code.match(/Alt/)) this.altKey = false;
 
-      if (!code.match(/Caps/) && !code.match(/Win/)) keyObj.div.classList.remove('active');
+      if (!code.match(/Caps|Win|ControlRight|Shift/)) keyObj.div.classList.remove('active');
     }
   }
 
   resetButtonState = ({ target: { dataset: { code } } }) => {
-    if (code.match('Shift')) {
-      this.shiftKey = false;
-      this.switchUpperCase(false);
-      this.keysPressed[code].div.classList.remove('active');
-    }
     if (code.match(/Control/)) this.ctrKey = false;
     if (code.match(/Alt/)) this.altKey = false;
     this.resetPressedButtons(code);
@@ -176,7 +185,7 @@ export default class Keyboard {
 
   resetPressedButtons = (targetCode) => {
     if (!this.keysPressed[targetCode]) return;
-    if (!this.isCaps && !this.soundOn) this.keysPressed[targetCode].div.classList.remove('active');
+    if (!this.isCaps && !this.soundOn && !this.voiceOn && !this.shiftKey) this.keysPressed[targetCode].div.classList.remove('active');
     this.keysPressed[targetCode].div.removeEventListener('mouseleave', this.resetButtonState);
     delete this.keysPressed[targetCode];
   }
@@ -262,7 +271,7 @@ export default class Keyboard {
       }
       button.letter.innerHTML = keyObj.small;
     });
-    if (this.isCaps) this.switchUpperCase(true);
+    if (this.isCaps || this.shiftKey) this.switchUpperCase(true);
   }
 
   playSound(code) {
@@ -273,6 +282,21 @@ export default class Keyboard {
     } else if (this.keyBase === language.ru) {
       this.ruKeySound.play();
     }
+  }
+
+  getVoiceInput() {
+    this.recognition.addEventListener('result', e => {
+      const transcript = Array.from(e.results)
+        .map(result => result[0])
+        .map(result => result.transcript)
+        .join('');
+
+      console.log(transcript);
+    });
+
+    // this.recognition.addEventListener('end', this.recognition.start);
+
+    this.recognition.start();
   }
 
   printToOutput(keyObj, symbol) {

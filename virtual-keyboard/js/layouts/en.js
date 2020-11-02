@@ -290,7 +290,7 @@ export default [
     code: 'Space',
   },
   {
-    small: 'ru',
+    small: 'en/ru',
     shift: null,
     code: 'AltRight',
   },
