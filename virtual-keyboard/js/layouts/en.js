@@ -270,7 +270,7 @@ export default [
     code: 'Slash',
   },
   {
-    small: 'Shift',
+    small: '&#10003;',
     shift: null,
     code: 'ShiftRight',
   },
@@ -290,7 +290,7 @@ export default [
     code: 'Space',
   },
   {
-    small: 'ru',
+    small: 'en/ru',
     shift: null,
     code: 'AltRight',
   },

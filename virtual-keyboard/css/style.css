@@ -13,7 +13,7 @@ body {
 }
 
 main {
-  width: 1020px;
+  width: 74%;
   margin: auto;
 }
 
@@ -193,6 +193,16 @@ textarea.output {
   -moz-transform: translateX(20px);
   -ms-transform: translateX(20px);
   -o-transform: translateX(20px);
+}
+
+.hidden {
+  transform: translateY(100%);
+  transition: all .3s ease-in-out;
+}
+
+.show {
+  transform: translateY(0);
+  transition: all .3s ease-in-out;
 }
 
 @keyframes fadeInOut {
