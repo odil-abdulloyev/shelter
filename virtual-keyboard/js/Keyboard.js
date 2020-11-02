@@ -22,19 +22,18 @@ export default class Keyboard {
       console.log('Speech recognition is not supported in your browser');
     }
 
-    // this.recognition.interimResults = true;
-    // this.recognition.lang = 'en-US';
-    this.voiceOn = false;
     // Voice input
+    this.recognition.interimResults = true;
+    this.voiceOn = false;
     this.recognition.addEventListener('result', e => {
       const transcript = Array.from(e.results)
         .map(result => result[0])
         .map(result => result.transcript)
         .join('');
 
-      this.output.textContent = transcript;
+      this.output.textContent += transcript;
     });
-    // this.recognition.addEventListener('end', this.recognition.start);
+    this.recognition.addEventListener('end', this.recognition.start);
 
     this.specialKeySound = document.createElement('audio');
     this.specialKeySound.setAttribute('src', 'sounds/special.wav');
@@ -117,8 +116,10 @@ export default class Keyboard {
       if (code.match(/AltRight/)) {
         if (this.keyBase === language.ru) {
           keyObj.div.textContent = 'en';
+          this.recognition.lang = 'en-US';
         } else {
           keyObj.div.textContent = 'ru';
+          this.recognition.lang = 'ru-RU';
         }
         this.switchLanguage();
       }
