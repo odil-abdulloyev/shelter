@@ -25,6 +25,17 @@ export default class Keyboard {
     // this.recognition.interimResults = true;
     // this.recognition.lang = 'en-US';
     this.voiceOn = false;
+    // Voice input
+    this.recognition.addEventListener('result', e => {
+      const transcript = Array.from(e.results)
+        .map(result => result[0])
+        .map(result => result.transcript)
+        .join('');
+
+      this.output.textContent = transcript;
+    });
+    // this.recognition.addEventListener('end', this.recognition.start);
+
     this.specialKeySound = document.createElement('audio');
     this.specialKeySound.setAttribute('src', 'sounds/special.wav');
     this.specialKeySound.playbackRate = 2;
@@ -147,7 +158,8 @@ export default class Keyboard {
 
       if (code.match(/ControlRight/) && !this.voiceOn) {
         this.voiceOn = true;
-        this.getVoiceInput();
+        this.recognition.start();
+        // this.getVoiceInput();
       } else if (code.match(/ControlRight/) && this.voiceOn) {
         this.voiceOn = false;
         this.recognition.stop();
@@ -185,8 +197,6 @@ export default class Keyboard {
       // ОТЖАТИЕ КНОПКИ
     } else if (e.type.match(/keyup|mouseup/)) {
       this.resetPressedButtons(code);
-      // if (code.match(/Control/)) this.ctrKey = false;
-      // if (code.match(/Alt/)) this.altKey = false;
 
       if (!code.match(/Caps|Win|ControlRight|ShiftLeft/)) keyObj.div.classList.remove('active');
     }
