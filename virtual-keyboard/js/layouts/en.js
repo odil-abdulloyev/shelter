@@ -290,12 +290,12 @@ export default [
     code: 'Space',
   },
   {
-    small: 'Alt',
+    small: 'ru',
     shift: null,
     code: 'AltRight',
   },
   {
-    small: 'Ctrl',
+    small: 'Voice',
     shift: null,
     code: 'ControlRight',
   },

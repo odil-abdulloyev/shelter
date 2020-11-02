@@ -100,6 +100,14 @@ export default class Keyboard {
       if (code.match(/Alt/)) this.altKey = true;
       if (code.match(/Control/) && this.altKey) this.switchLanguage();
       if (code.match(/Alt/) && this.ctrKey) this.switchLanguage();
+      if (code.match(/AltRight/)) {
+        if (this.keyBase === language.ru) {
+          keyObj.div.textContent = 'en';
+        } else {
+          keyObj.div.textContent = 'ru';
+        }
+        this.switchLanguage();
+      }
 
       keyObj.div.classList.add('active');
 
@@ -112,7 +120,7 @@ export default class Keyboard {
         keyObj.div.classList.remove('active');
       }
 
-      // play sound on keydown
+      // play sound on keydown/mousedown
       if (this.soundOn) {
         this.playSound(code);
       }
@@ -258,7 +266,7 @@ export default class Keyboard {
   }
 
   playSound(code) {
-    if (code && code.match(/Enter|Shift|Caps|Tab|Control|Space|Alt|Delete|Backspace|Win/)) {
+    if (code && code.match(/Enter|Shift|Caps|Tab|Control|Alt|Delete|Backspace|Win/)) {
       this.specialKeySound.play();
     } else if (this.keyBase === language.en) {
       this.enKeySound.play();
