@@ -27,11 +27,15 @@ export default class Keyboard {
       const transcript = Array.from(e.results)
         .map(result => result[0])
         .map(result => result.transcript)
-        .join('');
+        .join(' ');
 
-      this.output.textContent += transcript;
+      if (this.output.textContent !== undefined && this.output.textContent !== null) {
+        this.output.textContent += transcript;
+      }
     });
-    this.recognition.addEventListener('end', this.recognition.start);
+    this.recognition.addEventListener('end', () => {
+      if (this.voiceOn) this.recognition.start();
+    });
 
     this.specialKeySound = document.createElement('audio');
     this.specialKeySound.setAttribute('src', 'sounds/special.wav');
