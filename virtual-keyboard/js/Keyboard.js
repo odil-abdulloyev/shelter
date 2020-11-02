@@ -21,7 +21,6 @@ export default class Keyboard {
     } catch (ex) {
       console.log('Speech recognition is not supported in your browser');
     }
-    // this.recognition.interimResults = true;
     this.voiceOn = false;
     this.recognition.addEventListener('result', e => {
       const transcript = Array.from(e.results)
