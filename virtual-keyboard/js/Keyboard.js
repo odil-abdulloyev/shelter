@@ -129,10 +129,10 @@ export default class Keyboard {
       if (code.match(/AltRight/)) {
         if (this.keyBase === language.ru) {
           keyObj.div.textContent = 'en';
-          this.recognition.lang = 'en-US';
+          if (this.recognition) this.recognition.lang = 'en-US';
         } else {
           keyObj.div.textContent = 'ru';
-          this.recognition.lang = 'ru-RU';
+          if (this.recognition) this.recognition.lang = 'ru-RU';
         }
         this.switchLanguage();
       }
