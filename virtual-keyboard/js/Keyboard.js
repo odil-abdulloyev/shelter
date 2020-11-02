@@ -307,7 +307,7 @@ export default class Keyboard {
         .map(result => result.transcript)
         .join('');
 
-      console.log(transcript);
+      this.output.textContent = transcript;
     });
 
     // this.recognition.addEventListener('end', this.recognition.start);
