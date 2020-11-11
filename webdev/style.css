@@ -100,7 +100,7 @@ h2 {
 
 .your-life {
   padding: 70px 0 89px 0;
-  background: url('/assets/img/main-bg.jpg') center center/cover no-repeat;
+  background: url('assets/img/main-bg.jpg') center center/cover no-repeat;
 }
 
 .your-life .your-life_title {
