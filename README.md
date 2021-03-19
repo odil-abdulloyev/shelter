@@ -1,1 +1,3 @@
-https://rolling-scopes-school.github.io/odil-abdulloyev-JS2020Q3/virtual-keyboard/
+# Shelter
+
+Deploy: [https://odil-abdulloyev.github.io/shelter/](https://odil-abdulloyev.github.io/shelter/)
